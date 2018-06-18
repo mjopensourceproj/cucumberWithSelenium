@@ -1,5 +1,6 @@
 package org.cucumberselenium.cucumberSelenium.gluecode;
 
+import java.io.File;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -17,11 +18,13 @@ public class StepDefination {
 
 	@Given("^User navigates to selenium hq page$")
 	public void user_navigates_to_selenium_hq_page() throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		// change the chromedriver path(lets move this to relative path in
-		// future)
-		System.setProperty("webdriver.chrome.driver",
-				"D:\\gitHubProjects\\cucumberWithSelenium\\cucumberSelenium\\chromedriver_win32\\chromedriver.exe");
+
+		File directory = new File("");
+		System.out.println("relative path: " + directory.getAbsolutePath() + File.separator + "chromedriver_win32");
+		String chromeDirectory = directory.getAbsolutePath() + File.separator + "chromedriver_win32" + File.separator
+				+ "chromedriver.exe";
+
+		System.setProperty("webdriver.chrome.driver", chromeDirectory);
 
 		driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);

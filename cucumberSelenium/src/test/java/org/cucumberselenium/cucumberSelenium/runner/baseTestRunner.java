@@ -12,7 +12,8 @@ import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(features = "src/test/java/org/cucumberselenium/cucumberSelenium/feature", glue = {
-		"org.cucumberselenium.cucumberSelenium.gluecode.StepDefination" })
+		"org.cucumberselenium.cucumberSelenium.gluecode.StepDefination" }, plugin = { "pretty",
+				"html:target/cucumber-reports" }, monochrome = true)
 public class baseTestRunner {
 	// @AfterClass
 	// public static void writeExtentReport() {
